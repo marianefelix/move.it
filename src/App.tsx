@@ -1,5 +1,7 @@
+import React from 'react';
+
 import ExperienceBar from 'components/ExperienceBar';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 import './styles/global.css';
 
@@ -9,7 +11,7 @@ const App = () => {
       <ExperienceBar />
     </Container>
   );
-}
+};
 
 const Container = styled.div`
   display: flex;
@@ -18,7 +20,7 @@ const Container = styled.div`
   /* ocupa 100% da altura da tela */
   height: 100vh;
   max-width: 992px;
-  
+
   margin: 0 auto;
   padding: 2.5rem 2rem;
 `;
