@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  ProfileContainer,
+  Container,
   Avatar,
   Description,
   Name,
@@ -12,7 +12,7 @@ import LevelUp from 'assets/icons/level_up.svg';
 
 const Profile = () => {
   return (
-    <ProfileContainer>
+    <Container>
       <Avatar
         src="https://github.com/marianefelix.png"
         alt="Avatar do usuário"
@@ -24,7 +24,7 @@ const Profile = () => {
           Level 1
         </Level>
       </Description>
-    </ProfileContainer>
+    </Container>
   );
 };
 

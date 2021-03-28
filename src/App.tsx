@@ -2,6 +2,7 @@ import React from 'react';
 
 import ExperienceBar from 'components/ExperienceBar';
 import Profile from 'components/Profile';
+import CompletedChallenges from 'components/CompletedChallenges';
 import styled from 'styled-components';
 
 import './styles/global.css';
@@ -11,7 +12,10 @@ const App = () => {
     <Container>
       <ExperienceBar />
       <LeftSection>
-        <Profile />
+        <SectionContent>
+          <Profile />
+          <CompletedChallenges />
+        </SectionContent>
       </LeftSection>
     </Container>
   );
@@ -33,10 +37,12 @@ const LeftSection = styled.section`
   flex: 1;
 
   display: grid;
-  align-items: center;
+  align-content: center;
 
   grid-template-columns: 1fr 1fr;
   gap: 6.25rem;
 `;
+
+const SectionContent = styled.div``;
 
 export default App;
