@@ -1,6 +1,8 @@
 import ExperienceBar from 'components/ExperienceBar';
 import Profile from 'components/Profile';
 import CompletedChallenges from 'components/CompletedChallenges';
+import Countdown from 'components/Countdown';
+
 import styled from 'styled-components';
 
 import './styles/global.css';
@@ -13,6 +15,7 @@ const App = () => {
         <LeftSectionContent>
           <Profile />
           <CompletedChallenges />
+          <Countdown />
         </LeftSectionContent>
       </LeftSection>
     </Container>
