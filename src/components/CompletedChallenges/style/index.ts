@@ -12,10 +12,10 @@ export const Container = styled.div`
   font-weight: 500;
 `;
 
-export const Text = styled.span`
+export const Title = styled.span`
   font-size: 1.2rem;
 `;
 
-export const Number = styled.span`
+export const Score = styled.span`
   font-size: 1.4rem;
 `;

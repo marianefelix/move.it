@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ExperienceBar from 'components/ExperienceBar';
 import Profile from 'components/Profile';
 import CompletedChallenges from 'components/CompletedChallenges';
@@ -12,10 +10,10 @@ const App = () => {
     <Container>
       <ExperienceBar />
       <LeftSection>
-        <SectionContent>
+        <LeftSectionContent>
           <Profile />
           <CompletedChallenges />
-        </SectionContent>
+        </LeftSectionContent>
       </LeftSection>
     </Container>
   );
@@ -43,6 +41,6 @@ const LeftSection = styled.section`
   gap: 6.25rem;
 `;
 
-const SectionContent = styled.div``;
+const LeftSectionContent = styled.div``;
 
 export default App;

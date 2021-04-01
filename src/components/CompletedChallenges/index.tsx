@@ -1,12 +1,10 @@
-import React from 'react';
-
-import { Container, Text, Number } from 'components/CompletedChallenges/style';
+import { Container, Title, Score } from 'components/CompletedChallenges/style';
 
 const CompletedChallenges = () => {
   return (
     <Container>
-      <Text>Desafios completos</Text>
-      <Number>5</Number>
+      <Title>Desafios completos</Title>
+      <Score>5</Score>
     </Container>
   );
 };
