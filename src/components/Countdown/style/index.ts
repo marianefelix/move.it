@@ -38,3 +38,32 @@ export const Container = styled.div`
     margin: 0 0.5rem;
   }
 `;
+
+export const CountdownButton = styled.button`
+  width: 100%;
+  height: 5rem;
+  margin-top: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: var(--blue-dark);
+  }
+`;
+
+export const PlayIcon = styled.img`
+  margin-left: 10px;
+`;
