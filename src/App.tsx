@@ -6,18 +6,22 @@ import Countdown from 'components/Countdown';
 import styled from 'styled-components';
 
 import './styles/global.css';
+import ChallengeBox from 'components/ChallengeBox';
 
 const App = () => {
   return (
     <Container>
       <ExperienceBar />
-      <LeftSection>
+      <Section>
         <LeftSectionContent>
           <Profile />
           <CompletedChallenges />
           <Countdown />
         </LeftSectionContent>
-      </LeftSection>
+        <RightSectionContent>
+          <ChallengeBox />
+        </RightSectionContent>
+      </Section>
     </Container>
   );
 };
@@ -34,7 +38,7 @@ const Container = styled.div`
   padding: 2.5rem 2rem;
 `;
 
-const LeftSection = styled.section`
+const Section = styled.section`
   flex: 1;
 
   display: grid;
@@ -45,5 +49,7 @@ const LeftSection = styled.section`
 `;
 
 const LeftSectionContent = styled.div``;
+
+const RightSectionContent = styled.div``;
 
 export default App;
