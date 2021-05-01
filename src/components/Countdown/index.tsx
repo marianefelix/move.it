@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState, useEffect, useContext } from 'react';
 
 import {
   Container,
@@ -7,6 +7,8 @@ import {
   CountdownButton,
 } from 'components/Countdown/style';
 
+import { ChallengesContext } from 'contexts/ChallengesContext';
+
 import { ReactComponent as PlayIcon } from 'assets/icons/play_arrow.svg';
 import { ReactComponent as StopIcon } from 'assets/icons/stop.svg';
 import { ReactComponent as CheckIcon } from 'assets/icons/check_circle.svg';
@@ -14,6 +16,8 @@ import { ReactComponent as CheckIcon } from 'assets/icons/check_circle.svg';
 let countdownTimeout: NodeJS.Timeout;
 
 const Countdown = () => {
+  const { startNewChallenge } = useContext(ChallengesContext);
+
   const [time, setTime] = useState(0.1 * 60);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
@@ -47,6 +51,7 @@ const Countdown = () => {
     } else if (isActive && time === 0) {
       setHasFinished(true);
       setIsActive(false);
+      startNewChallenge();
     }
   }, [isActive, time]);
 

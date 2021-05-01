@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface CurrenteExperienceType {
+  progress: number;
+}
+
 export const Header = styled.header`
   display: flex;
   align-items: center;
@@ -18,18 +22,16 @@ export const Bar = styled.div`
   position: relative;
 `;
 
-export const ProgressBar = styled.div`
-  /* largura será variável */
-  width: 50%;
+export const ProgressBar = styled.div<CurrenteExperienceType>`
+  width: ${(props) => `${props.progress}%`};
   height: 4px;
   background: var(--green);
   border-radius: 5px 0px 0px 5px;
 `;
 
-export const CurrentExperience = styled.span`
+export const CurrentExperience = styled.span<CurrenteExperienceType>`
   font-size: 1rem;
-  /* posição left será variável */
-  left: 50%;
+  left: ${(props) => `${props.progress}%`};
   top: 12px;
   position: absolute;
   transform: translateX(-50%);

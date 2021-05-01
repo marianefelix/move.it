@@ -1,0 +1,32 @@
+[
+    {
+        "type": "body",
+        "description": "Faça alguma coisa",
+        "amount": 80
+    },
+    {
+        "type": "body",
+        "description": "Faça alguma coisa",
+        "amount": 80
+    },
+    {
+        "type": "body",
+        "description": "Faça alguma coisa",
+        "amount": 80
+    },
+    {
+        "type": "body",
+        "description": "Faça alguma coisa",
+        "amount": 80
+    },
+    {
+        "type": "eye",
+        "description": "Faça alguma coisa",
+        "amount": 80
+    },
+    {
+        "type": "eye",
+        "description": "Faça alguma coisa",
+        "amount": 80
+    }
+]

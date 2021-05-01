@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+
 import {
   Header,
   ExperienceText,
@@ -6,15 +8,26 @@ import {
   CurrentExperience,
 } from 'components/ExperienceBar/style';
 
+import { ChallengesContext } from 'contexts/ChallengesContext';
+
 const ExperienceBar = () => {
+  const { currentExperience, experienceToNextLevel } = useContext(
+    ChallengesContext
+  );
+
+  const percentToNextLevel =
+    Math.round(currentExperience * 100) / experienceToNextLevel;
+
   return (
     <Header>
       <ExperienceText>0xp</ExperienceText>
       <Bar>
-        <ProgressBar />
-        <CurrentExperience>300xp</CurrentExperience>
+        <ProgressBar progress={percentToNextLevel} />
+        <CurrentExperience progress={percentToNextLevel}>
+          {currentExperience}xp
+        </CurrentExperience>
       </Bar>
-      <ExperienceText>600px</ExperienceText>
+      <ExperienceText>{experienceToNextLevel}xp</ExperienceText>
     </Header>
   );
 };

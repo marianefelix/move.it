@@ -2,27 +2,30 @@ import ExperienceBar from 'components/ExperienceBar';
 import Profile from 'components/Profile';
 import CompletedChallenges from 'components/CompletedChallenges';
 import Countdown from 'components/Countdown';
+import ChallengeBox from 'components/ChallengeBox';
+import ChallengesProvider from 'contexts/ChallengesContext';
 
 import styled from 'styled-components';
 
 import './styles/global.css';
-import ChallengeBox from 'components/ChallengeBox';
 
 const App = () => {
   return (
-    <Container>
-      <ExperienceBar />
-      <Section>
-        <LeftSectionContent>
-          <Profile />
-          <CompletedChallenges />
-          <Countdown />
-        </LeftSectionContent>
-        <RightSectionContent>
-          <ChallengeBox />
-        </RightSectionContent>
-      </Section>
-    </Container>
+    <ChallengesProvider>
+      <Container>
+        <ExperienceBar />
+        <Section>
+          <LeftSectionContent>
+            <Profile />
+            <CompletedChallenges />
+            <Countdown />
+          </LeftSectionContent>
+          <RightSectionContent>
+            <ChallengeBox />
+          </RightSectionContent>
+        </Section>
+      </Container>
+    </ChallengesProvider>
   );
 };
 

@@ -5,7 +5,7 @@ interface ButtonType {
 }
 
 interface TitleType {
-  hasActiveChallenge: boolean;
+  hasActiveChallenge?: boolean;
 }
 
 export const Container = styled.div`
