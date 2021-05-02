@@ -11,6 +11,7 @@ interface ChallengesContextData {
   levelUp: () => void;
   startNewChallenge: () => void;
   resetChallenge: () => void;
+  completeChallenge: () => void;
 }
 
 interface Challenge {
@@ -27,9 +28,7 @@ export const ChallengesContext = createContext({} as ChallengesContextData);
 
 const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
   const [level, setLevel] = useState(1);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [currentExperience, setCurrentExperience] = useState(0);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [challengesCompleted, setChallengesCompleted] = useState(0);
   const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(
     null
@@ -53,6 +52,25 @@ const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     setActiveChallenge(null);
   };
 
+  const completeChallenge = () => {
+    if (!activeChallenge) {
+      return;
+    }
+
+    const { amount } = activeChallenge;
+
+    let finalExperience = currentExperience + amount;
+
+    if (finalExperience >= experienceToNextLevel) {
+      finalExperience = finalExperience - experienceToNextLevel;
+      levelUp();
+    }
+
+    setCurrentExperience(finalExperience);
+    setChallengesCompleted(challengesCompleted + 1);
+    setActiveChallenge(null);
+  };
+
   return (
     <ChallengesContext.Provider
       value={{
@@ -64,6 +82,7 @@ const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
         levelUp,
         startNewChallenge,
         resetChallenge,
+        completeChallenge,
       }}
     >
       {children}

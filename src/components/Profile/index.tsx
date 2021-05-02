@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+
 import {
   Container,
   Avatar,
@@ -6,9 +8,14 @@ import {
   Level,
   LevelIcon,
 } from 'components/Profile/style';
+
 import LevelUp from 'assets/icons/level_up.svg';
 
+import { ChallengesContext } from 'contexts/ChallengesContext';
+
 const Profile = () => {
+  const { level } = useContext(ChallengesContext);
+
   return (
     <Container>
       <Avatar
@@ -19,7 +26,7 @@ const Profile = () => {
         <Name>Mariane Felix</Name>
         <Level>
           <LevelIcon src={LevelUp} alt="Ícone de nível" />
-          Level 1
+          Level {level}
         </Level>
       </Description>
     </Container>

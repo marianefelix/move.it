@@ -10,13 +10,27 @@ import {
   Button,
 } from 'components/ChallengeBox/style';
 
-import { ChallengesContext } from 'contexts/ChallengesContext';
-
 import { ReactComponent as LevelUpIcon } from 'assets/icons/level_up_challenge.svg';
 import { ReactComponent as WeightIcon } from 'assets/icons/weight.svg';
 
+import { ChallengesContext } from 'contexts/ChallengesContext';
+import { CountdownContext } from 'contexts/CountdownContext';
+
 const ChallengeBox = () => {
-  const { activeChallenge, resetChallenge } = useContext(ChallengesContext);
+  const { activeChallenge, resetChallenge, completeChallenge } = useContext(
+    ChallengesContext
+  );
+  const { resetCountdown } = useContext(CountdownContext);
+
+  const handleChallengeSucceeded = () => {
+    completeChallenge();
+    resetCountdown();
+  };
+
+  const handleChallengeFailed = () => {
+    resetChallenge();
+    resetCountdown();
+  };
 
   return (
     <Container>
@@ -29,10 +43,12 @@ const ChallengeBox = () => {
             <Description>{activeChallenge.description}</Description>
           </MainContent>
           <Footer>
-            <Button type="button" failedButton onClick={resetChallenge}>
+            <Button type="button" failedButton onClick={handleChallengeFailed}>
               Falhei
             </Button>
-            <Button type="button">Completei</Button>
+            <Button type="button" onClick={handleChallengeSucceeded}>
+              Completei
+            </Button>
           </Footer>
         </Fragment>
       ) : (

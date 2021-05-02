@@ -3,7 +3,9 @@ import Profile from 'components/Profile';
 import CompletedChallenges from 'components/CompletedChallenges';
 import Countdown from 'components/Countdown';
 import ChallengeBox from 'components/ChallengeBox';
+
 import ChallengesProvider from 'contexts/ChallengesContext';
+import CountdownProvider from 'contexts/CountdownContext';
 
 import styled from 'styled-components';
 
@@ -14,16 +16,18 @@ const App = () => {
     <ChallengesProvider>
       <Container>
         <ExperienceBar />
-        <Section>
-          <LeftSectionContent>
-            <Profile />
-            <CompletedChallenges />
-            <Countdown />
-          </LeftSectionContent>
-          <RightSectionContent>
-            <ChallengeBox />
-          </RightSectionContent>
-        </Section>
+        <CountdownProvider>
+          <Section>
+            <LeftSectionContent>
+              <Profile />
+              <CompletedChallenges />
+              <Countdown />
+            </LeftSectionContent>
+            <RightSectionContent>
+              <ChallengeBox />
+            </RightSectionContent>
+          </Section>
+        </CountdownProvider>
       </Container>
     </ChallengesProvider>
   );
