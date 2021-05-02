@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 
 import challenges from 'data/challenges.json';
 
@@ -34,6 +34,10 @@ const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     null
   );
 
+  useEffect(() => {
+    Notification.requestPermission();
+  }, []);
+
   //cálculo usado no RPG
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
@@ -46,6 +50,12 @@ const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     const activeChallenge = challenges[randomChallengeIndex];
 
     setActiveChallenge(activeChallenge);
+
+    if (Notification.permission === 'granted') {
+      new Notification('Novo desafio 🎉', {
+        body: `Valendo ${activeChallenge.amount}xp!`,
+      });
+    }
   };
 
   const resetChallenge = () => {
