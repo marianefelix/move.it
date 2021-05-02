@@ -33,18 +33,6 @@ const App = () => {
   );
 };
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  /* ocupa 100% da altura da tela */
-  height: 100vh;
-  max-width: 992px;
-
-  margin: 0 auto;
-  padding: 2.5rem 2rem;
-`;
-
 const Section = styled.section`
   flex: 1;
 
@@ -58,5 +46,31 @@ const Section = styled.section`
 const LeftSectionContent = styled.div``;
 
 const RightSectionContent = styled.div``;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  /* ocupa 100% da altura da tela */
+  height: 100vh;
+  max-width: 992px;
+
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+
+  @media (max-width: 700px) {
+    ${Section} {
+      grid-template-columns: 1fr;
+    }
+
+    ${LeftSectionContent} {
+      margin-top: 20px;
+    }
+
+    ${RightSectionContent} {
+      margin-bottom: 20px;
+    }
+  }
+`;
 
 export default App;
