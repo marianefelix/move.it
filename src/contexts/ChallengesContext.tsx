@@ -42,9 +42,15 @@ const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
     const readValuesInCookies = () => {
       const { level, currentExperience, challengesCompleted } = Cookies.get();
 
-      if (level && currentExperience && challengesCompleted) {
+      if (level) {
         setLevel(Number(level));
+      }
+
+      if (currentExperience) {
         setCurrentExperience(Number(currentExperience));
+      }
+
+      if (challengesCompleted) {
         setChallengesCompleted(Number(challengesCompleted));
       }
     };
