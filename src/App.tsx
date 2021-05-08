@@ -74,16 +74,3 @@ const Container = styled.div`
 `;
 
 export default App;
-
-/*
-export const getServerSideProps = async () => {
-  const user = {
-    level: 1,
-    currentExperience: 50,
-  };
-
-  return {
-    props: user,
-  };
-};
-*/
