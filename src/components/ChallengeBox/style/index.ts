@@ -40,6 +40,13 @@ export const MainContent = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 700px) {
+    & {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
 `;
 
 export const Title = styled.strong<TitleType>`
