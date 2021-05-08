@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 import ExperienceBar from 'components/ExperienceBar';
 import Profile from 'components/Profile';
 import CompletedChallenges from 'components/CompletedChallenges';
@@ -6,8 +8,6 @@ import ChallengeBox from 'components/ChallengeBox';
 
 import ChallengesProvider from 'contexts/ChallengesContext';
 import CountdownProvider from 'contexts/CountdownContext';
-
-import styled from 'styled-components';
 
 import './styles/global.css';
 
@@ -74,3 +74,16 @@ const Container = styled.div`
 `;
 
 export default App;
+
+/*
+export const getServerSideProps = async () => {
+  const user = {
+    level: 1,
+    currentExperience: 50,
+  };
+
+  return {
+    props: user,
+  };
+};
+*/

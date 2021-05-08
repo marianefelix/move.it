@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
-
+import Cookies from 'js-cookie';
 import challenges from 'data/challenges.json';
 
 interface ChallengesContextData {
@@ -35,8 +35,33 @@ const ChallengesProvider = ({ children }: ChallengesProviderProps) => {
   );
 
   useEffect(() => {
-    Notification.requestPermission();
+    const requestNotificationPermission = () => {
+      Notification.requestPermission();
+    };
+
+    const readValuesInCookies = () => {
+      const { level, currentExperience, challengesCompleted } = Cookies.get();
+
+      if (level && currentExperience && challengesCompleted) {
+        setLevel(Number(level));
+        setCurrentExperience(Number(currentExperience));
+        setChallengesCompleted(Number(challengesCompleted));
+      }
+    };
+
+    requestNotificationPermission();
+    readValuesInCookies();
   }, []);
+
+  useEffect(() => {
+    const saveValuesInCookies = () => {
+      Cookies.set('level', String(level));
+      Cookies.set('currentExperience', String(currentExperience));
+      Cookies.set('challengesCompleted', String(challengesCompleted));
+    };
+
+    saveValuesInCookies();
+  }, [level, currentExperience, challengesCompleted]);
 
   //cálculo usado no RPG
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
