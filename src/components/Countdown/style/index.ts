@@ -39,11 +39,7 @@ export const Container = styled.div`
   }
 `;
 
-interface ButtonProps {
-  isActive: boolean;
-}
-
-export const CountdownButton = styled.button<ButtonProps>`
+const CountdownButton = styled.button`
   width: 100%;
   height: 5rem;
   margin-top: 2rem;
@@ -53,35 +49,45 @@ export const CountdownButton = styled.button<ButtonProps>`
   justify-content: center;
   text-align: center;
 
-  background: ${(props) =>
-    props.isActive || props.disabled ? `var(--white)` : `var(--blue)`};
-  color: ${(props) =>
-    props.isActive || props.disabled ? `var(--text)` : `var(--white)`};
   box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.08);
-
   outline: none;
   border-radius: 5px;
-  border: 0;
-  border-bottom: ${(props) =>
-    props.disabled ? `4px solid var(--green)` : null};
-  cursor: ${(props) => (props.disabled ? 'unset' : 'pointer')};
 
   font-size: 1.25rem;
   font-weight: 600;
 
-  transition: background-color 0.3s;
+  transition: all 0.3s;
 
   & svg {
     margin-left: 10px;
   }
+`;
+
+export const StartCountdownButton = styled(CountdownButton)`
+  color: var(--white);
+  background: var(--blue);
+  border: 0;
 
   &:not(:disabled):hover {
-    background-color: ${(props) =>
-      props.isActive ? `var(--red)` : `var(--blue-dark)`};
-    color: var(--white);
+    background-color: var(--blue-dark);
   }
+`;
 
-  &:hover svg path {
-    fill: ${(props) => (props.isActive ? `var(--white)` : null)};
+export const StopCountdownButton = styled(CountdownButton)`
+  color: var(--title);
+  background: var(--white);
+  border: 2px solid var(--gray-line);
+
+  &:not(:disabled):hover {
+    background-color: var(--transparent-red);
+    border: 2px solid rgba(255, 0, 0, 0.6);
   }
+`;
+
+export const DisabledCountdownButton = styled(CountdownButton)`
+  color: var(--title);
+  background: var(--white);
+  border: 0;
+  border-bottom: 4px solid var(--green);
+  cursor: unset;
 `;

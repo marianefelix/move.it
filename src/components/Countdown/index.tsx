@@ -4,7 +4,9 @@ import {
   Container,
   TimeCard,
   Time,
-  CountdownButton,
+  StartCountdownButton,
+  StopCountdownButton,
+  DisabledCountdownButton,
 } from 'components/Countdown/style';
 
 import { ReactComponent as PlayIcon } from 'assets/icons/play_arrow.svg';
@@ -44,33 +46,22 @@ const Countdown = () => {
           <Time>{secondRight}</Time>
         </TimeCard>
       </Container>
-      <CountdownButton
-        disabled={hasFinished}
-        isActive={isActive}
-        type="button"
-        onClick={isActive ? resetCountdown : startCountdown}
-      >
-        {hasFinished ? (
-          <Fragment>
-            Ciclo encerrado
-            <CheckIcon title="Ícone de finalizado" />
-          </Fragment>
-        ) : (
-          <Fragment>
-            {isActive ? (
-              <Fragment>
-                Abandonar ciclo
-                <StopIcon title="Ícone de interromper" />
-              </Fragment>
-            ) : (
-              <Fragment>
-                Iniciar um ciclo
-                <PlayIcon title="Ícone de iniciar" />
-              </Fragment>
-            )}
-          </Fragment>
-        )}
-      </CountdownButton>
+      {hasFinished ? (
+        <DisabledCountdownButton type="button" disabled>
+          Ciclo encerrado
+          <CheckIcon title="Ícone de finalizado" />
+        </DisabledCountdownButton>
+      ) : isActive ? (
+        <StopCountdownButton type="button" onClick={resetCountdown}>
+          Abandonar ciclo
+          <StopIcon title="Ícone de interromper" />
+        </StopCountdownButton>
+      ) : (
+        <StartCountdownButton type="button" onClick={startCountdown}>
+          Iniciar um ciclo
+          <PlayIcon title="Ícone de iniciar" />
+        </StartCountdownButton>
+      )}
     </Fragment>
   );
 };
