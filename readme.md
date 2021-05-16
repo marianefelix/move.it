@@ -1,6 +1,6 @@
 <a href="https://my-move-it-app.vercel.app/" target="_blank">
   <h1 align="center">
-    <img src="logo.png" alt="Move.it" width="25"/>
+    <img src="static/images/logo.png" alt="Move.it" width="25"/>
     Move.it
   </h1>
 </a>
