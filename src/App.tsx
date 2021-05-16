@@ -41,6 +41,12 @@ const Section = styled.section`
 
   grid-template-columns: 1fr 1fr;
   gap: 6.25rem;
+
+  @media (max-width: 700px) {
+    & {
+      gap: 5rem;
+    }
+  }
 `;
 
 const LeftSectionContent = styled.div``;
@@ -64,7 +70,7 @@ const Container = styled.div`
     }
 
     ${LeftSectionContent} {
-      margin-top: 20px;
+      margin-top: 4rem;
     }
 
     ${RightSectionContent} {

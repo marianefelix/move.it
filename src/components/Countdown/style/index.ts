@@ -76,11 +76,11 @@ export const StartCountdownButton = styled(CountdownButton)`
 export const StopCountdownButton = styled(CountdownButton)`
   color: var(--title);
   background: var(--white);
-  border: 2px solid var(--gray-line);
+  border: 2px solid var(--white);
 
   &:not(:disabled):hover {
     background-color: var(--transparent-red);
-    border: 2px solid rgba(255, 0, 0, 0.6);
+    border: 2px solid rgba(255, 0, 0, 0.5);
   }
 `;
 
