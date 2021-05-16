@@ -8,6 +8,10 @@ interface TitleType {
   hasActiveChallenge?: boolean;
 }
 
+interface DescriptionType {
+  textAlign: 'left' | 'center';
+}
+
 export const Container = styled.div`
   height: 100%;
 
@@ -19,18 +23,18 @@ export const Container = styled.div`
   background: var(--white);
   border-radius: 5px;
   box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.08);
-  padding: 1.5rem 2rem;
 
   text-align: center;
 `;
 
 export const Header = styled.header`
-  width: 90%;
+  width: 100%;
+
   color: var(--blue);
   font-weight: 600;
   font-size: 1.25rem;
 
-  padding: 0 2rem 1.5rem;
+  padding: 1rem 0 1rem 0;
   border-bottom: 1px solid var(--gray-line);
 `;
 
@@ -40,6 +44,9 @@ export const MainContent = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  padding: 1.5rem 2rem;
+  padding-bottom: 0;
 
   @media (max-width: 700px) {
     & {
@@ -59,50 +66,53 @@ export const Title = styled.strong<TitleType>`
   line-height: 1.4;
 `;
 
-export const Description = styled.p`
-  max-width: 70%;
+export const Description = styled.p<DescriptionType>`
+  width: 80%;
 
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
 
+  text-align: ${(props) => props.textAlign};
   line-height: 1.5;
+`;
 
-  & svg {
-    margin-bottom: 1rem;
-  }
+export const Text = styled.span`
+  max-width: 70%;
 `;
 
 export const Footer = styled.footer`
   width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  border-top: 1px solid var(--gray-line);
 `;
 
 export const Button = styled.button<ButtonType>`
-  height: 3rem;
-
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 0;
+  border-left: ${(props) =>
+    props.failedButton ? '0' : '1px solid var(--gray-line)'};
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
   outline: none;
-  border-radius: 5px;
 
-  color: var(--white);
+  color: var(--title);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
 
-  background: ${(props) =>
-    props.failedButton ? `var(--red)` : `var(--green)`};
+  background: var(--white);
 
-  transition: filter 0.2s;
+  transition: background-color 0.2s;
 
   &:hover {
-    filter: brightness(0.9); //diminui o brilho
+    background: ${(props) =>
+      props.failedButton ? `var(--transparent-red)` : '#F7FFF5'};
   }
 `;

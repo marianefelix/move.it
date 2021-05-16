@@ -6,6 +6,7 @@ import {
   MainContent,
   Title,
   Description,
+  Text,
   Footer,
   Button,
 } from 'components/ChallengeBox/style';
@@ -40,7 +41,9 @@ const ChallengeBox = () => {
           <MainContent>
             <WeightIcon title="Ícone de peso" />
             <Title hasActiveChallenge>Novo desafio</Title>
-            <Description>{activeChallenge.description}</Description>
+            <Description textAlign="center">
+              {activeChallenge.description}
+            </Description>
           </MainContent>
           <Footer>
             <Button type="button" failedButton onClick={handleChallengeFailed}>
@@ -52,13 +55,13 @@ const ChallengeBox = () => {
           </Footer>
         </Fragment>
       ) : (
-        <Fragment>
+        <MainContent>
           <Title>Finalize um ciclo para receber um desafio</Title>
-          <Description>
+          <Description textAlign="left">
             <LevelUpIcon title="Ícone de subir de nível" />
-            Avance de level completando desafios.
+            <Text>Avance de level completando desafios.</Text>
           </Description>
-        </Fragment>
+        </MainContent>
       )}
     </Container>
   );
