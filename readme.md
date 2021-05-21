@@ -19,7 +19,7 @@
   <a href="#sobre">Sobre</a> –
   <a href="#tecnologias-e-recursos-utilizados">Tecnologias e recursos utilizados</a> – 
   <a href="#screenshots">Screenshots</a> – 
-  <a href="#como-rodar">Como rodar?</a> –
+  <a href="#como-rodar">Como rodar</a> –
   <a href="#autora">Autora</a>
 </p>
 
@@ -27,16 +27,47 @@
 O [Move.it](https://my-move-it-app.vercel.app/) foi desenvolvido durante a Next Level Week #4 da [Rocketseat](https://rocketseat.com.br/), e consiste em uma aplicação voltada, principalmente, para os desenvolvedores web que passam muito tempo sentandos em frente ao computador. Dessa forma, a cada novo ciclo de 25 minutos, o usuário é desafiado a realizar pequenos exercícios, e se completados, podem fazê-lo subir de nível.
 
 ## Tecnologias e recursos utilizados
-[Reactjs](https://pt-br.reactjs.org/) <br>
-[styled-components](https://styled-components.com/) - forma de estilizar componentes <br>
-[Context API](https://pt-br.reactjs.org/docs/context.html) - forma de compartilhar estado <br>
-[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) e [Prettier](https://prettier.io/) - utilizados para padronizar escrita do código e evitar erros <br>
+* [Reactjs](https://pt-br.reactjs.org/) <br>
+* [styled-components](https://styled-components.com/) - forma de estilizar componentes <br>
+* [Context API](https://pt-br.reactjs.org/docs/context.html) - forma de compartilhar estado <br>
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) e [Prettier](https://prettier.io/) - utilizados para padronizar escrita do código e evitar erros <br>
 
 ## Screenshots
 O Move.it foi desenvolvido para se adaptar a qualquer tipo de tela, como é mostrado em algumas telas abaixo. <br>
-#### Iniciar novo clico
+
+### Iniciar novo clico
 <p>
     <img src="static/images/desktop_start.PNG" width="500"/>
     <img src="static/images/mobile_start.PNG" height="600"/>
 </p>
+<br>
 
+### Abandonar ciclo
+<p>
+    <img src="static/images/desktp_stop.PNG" width="500"/>
+    <img src="static/images/mobile_stop.PNG" height="600"/>
+</p>
+
+### Novo desafio
+<p>
+    <img src="static/images/desktop_completed.PNG" width="450"/>
+    <img src="static/images/desktop_failed.PNG" width="450"/>
+</p>
+
+## Como rodar
+Execute os seguintes comandos no seu terminal:
+
+```bash
+# Clone o repositório
+$ git clone https://github.com/marianefelix/move.it.git
+# Entre no repositório
+$ cd move.it
+# Instale as dependências
+$ yarn install
+# Execute o projeto
+$ yarn start
+```
+
+## Autora
+
+Feito por [Mariane Felix](https://www.linkedin.com/in/mariane-felix-642350171/).
