@@ -7,7 +7,7 @@ import {
   StartCountdownButton,
   StopCountdownButton,
   DisabledCountdownButton,
-} from 'components/Countdown/style';
+} from 'components/Countdown/styles';
 
 import { ReactComponent as PlayIcon } from 'assets/icons/play_arrow.svg';
 import { ReactComponent as StopIcon } from 'assets/icons/stop.svg';

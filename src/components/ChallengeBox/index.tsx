@@ -9,7 +9,7 @@ import {
   Text,
   Footer,
   Button,
-} from 'components/ChallengeBox/style';
+} from 'components/ChallengeBox/styles';
 
 import { ReactComponent as LevelUpIcon } from 'assets/icons/level_up_challenge.svg';
 import { ReactComponent as WeightIcon } from 'assets/icons/weight.svg';

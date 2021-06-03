@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { Container, Title, Score } from 'components/CompletedChallenges/style';
+import { Container, Title, Score } from 'components/CompletedChallenges/styles';
 
 import { ChallengesContext } from 'contexts/ChallengesContext';
 

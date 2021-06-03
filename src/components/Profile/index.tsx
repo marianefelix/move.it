@@ -7,7 +7,7 @@ import {
   Name,
   Level,
   LevelIcon,
-} from 'components/Profile/style';
+} from 'components/Profile/styles';
 
 import LevelUp from 'assets/icons/level_up.svg';
 

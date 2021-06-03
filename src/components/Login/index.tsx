@@ -16,7 +16,7 @@ import {
   StrongText,
   Button,
   Divider,
-} from './style';
+} from './styles';
 
 import { ReactComponent as GithubIcon } from 'assets/icons/github.svg';
 

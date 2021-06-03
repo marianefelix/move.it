@@ -9,7 +9,7 @@ import {
   Level,
   Title,
   Description,
-} from 'components/LevelUpModal/style';
+} from 'components/LevelUpModal/styles';
 
 import { ChallengesContext } from 'contexts/ChallengesContext';
 

@@ -6,7 +6,7 @@ import {
   Bar,
   ProgressBar,
   CurrentExperience,
-} from 'components/ExperienceBar/style';
+} from 'components/ExperienceBar/styles';
 
 import { ChallengesContext } from 'contexts/ChallengesContext';
 
