@@ -1,6 +1,6 @@
 <a href="https://my-move-it-app.vercel.app/" target="_blank">
   <h1 align="center">
-    <img src="./github/logo.png" alt="Move.it" width="25"/>
+    <img src="/.github/logo.png" alt="Move.it" width="25"/>
     Move.it
   </h1>
 </a>
@@ -37,21 +37,21 @@ O Move.it foi desenvolvido para se adaptar a qualquer tipo de tela, como é most
 
 ### Iniciar novo clico
 <p> 
-    <img src="./github/desktop_start.PNG" width="500"/>
-    <img src="./github/mobile_start.PNG" height="600"/>
+    <img src="/.github/desktop_start.PNG" width="500"/>
+    <img src="/.github/mobile_start.PNG" height="600"/>
 </p>
 <br>
 
 ### Abandonar ciclo
 <p>
-    <img src="./github/desktop_stop.PNG" width="500"/>
-    <img src="./github/mobile_stop.PNG" height="600"/>
+    <img src="/.github/desktop_stop.PNG" width="500"/>
+    <img src="/.github/mobile_stop.PNG" height="600"/>
 </p>
 
 ### Novo desafio
 <p>
-    <img src="./github/desktop_completed.PNG" width="450"/>
-    <img src="./github/desktop_failed.PNG" width="450"/>
+    <img src="/.github/desktop_completed.PNG" width="450"/>
+    <img src="/.github/desktop_failed.PNG" width="450"/>
 </p>
 
 ## Como rodar
