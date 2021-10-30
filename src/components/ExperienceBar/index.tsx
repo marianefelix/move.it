@@ -23,11 +23,16 @@ const ExperienceBar = () => {
       <ExperienceText>0xp</ExperienceText>
       <Bar>
         <ProgressBar progress={percentToNextLevel} />
-        <CurrentExperience progress={percentToNextLevel}>
+        <CurrentExperience
+          data-testid="current-experience"
+          progress={percentToNextLevel}
+        >
           {currentExperience}xp
         </CurrentExperience>
       </Bar>
-      <ExperienceText>{experienceToNextLevel}xp</ExperienceText>
+      <ExperienceText data-testid="to-next-level">
+        {experienceToNextLevel}xp
+      </ExperienceText>
     </Header>
   );
 };
