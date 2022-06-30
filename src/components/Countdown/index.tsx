@@ -1,19 +1,9 @@
 import { Fragment, useContext } from 'react';
 
-import {
-  Container,
-  TimeCard,
-  Time,
-  StartCountdownButton,
-  StopCountdownButton,
-  DisabledCountdownButton,
-} from 'components/Countdown/styles';
-
-import { ReactComponent as PlayIcon } from 'assets/icons/play_arrow.svg';
-import { ReactComponent as StopIcon } from 'assets/icons/stop.svg';
-import { ReactComponent as CheckIcon } from 'assets/icons/check_circle.svg';
+import { Container, TimeCard, Time } from 'components/Countdown/styles';
 
 import { CountdownContext } from 'contexts/CountdownContext';
+import { CountdownButton } from 'components/CountdownButton';
 
 const Countdown = () => {
   const {
@@ -21,8 +11,8 @@ const Countdown = () => {
     seconds,
     isActive,
     hasFinished,
-    startCountdown,
     resetCountdown,
+    startCountdown,
   } = useContext(CountdownContext);
 
   /*
@@ -46,22 +36,12 @@ const Countdown = () => {
           <Time>{secondRight}</Time>
         </TimeCard>
       </Container>
-      {hasFinished ? (
-        <DisabledCountdownButton type="button" disabled>
-          Ciclo encerrado
-          <CheckIcon title="Ícone de finalizado" />
-        </DisabledCountdownButton>
-      ) : isActive ? (
-        <StopCountdownButton type="button" onClick={resetCountdown}>
-          Abandonar ciclo
-          <StopIcon title="Ícone de interromper" />
-        </StopCountdownButton>
-      ) : (
-        <StartCountdownButton type="button" onClick={startCountdown}>
-          Iniciar um ciclo
-          <PlayIcon title="Ícone de iniciar" />
-        </StartCountdownButton>
-      )}
+      <CountdownButton
+        isActive={isActive}
+        hasFinished={hasFinished}
+        resetCountdown={resetCountdown}
+        startCountdown={startCountdown}
+      />
     </Fragment>
   );
 };
