@@ -32,7 +32,7 @@ export const CountdownButton = (props: CountdownButtonProps) => {
       data-testid="countdown-button"
     >
       Abandonar ciclo
-      <StopIcon title="Ícone de interromper" />
+      <StopIcon data-testid="close-icon" title="Ícone de interromper" />
     </StopCountdownButton>
   ) : (
     <StartCountdownButton
