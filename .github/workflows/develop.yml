@@ -15,9 +15,9 @@ jobs:
       run: |
         LAST_TAG=$(git tag -l --sort=-v:refname | head -n 1)
         ARR=$(echo $LAST_TAG | sed -e s/build-//g | tr -s "." " " | xargs -n 1)
-        read MAJOR MID MINOR <<< $ARR
+        IFS='.' read -r MAJOR MID MINOR <<< "$ARR"
         NEXT_PATCH=$((MINOR + 1))
-        NEXT_VERSION="$MAJOR.$MINOR.$NEXT_PATCH"
+        NEXT_VERSION="$MAJOR.$MID.$NEXT_PATCH"
         TAG_NAME="build-$NEXT_VERSION"
         git tag $TAG_NAME
         git push --tags
