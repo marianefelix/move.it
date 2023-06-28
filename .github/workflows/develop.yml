@@ -14,14 +14,10 @@ jobs:
     - name: Create tag
       run:
         LAST_TAG=$(git tag -l --sort=-v:refname | head -n 1)
-        if [ -z "$LAST_TAG" ]; then
-          NEXT_VERSION="0.0.1"
-        else
-          ARR=$(echo $LAST_TAG | sed -e s/build-//g | tr -s "." " " | xargs -n 1)
-          IFS='.' read -r MAJOR MID MINOR <<< "$ARR"
-          NEXT_PATCH=$((MINOR + 1))
-          NEXT_VERSION="$MAJOR.$MID.$NEXT_PATCH"
-        fi
+        ARR=$(echo $LAST_TAG | sed -e s/build-//g | tr -s "." " " | xargs -n 1)
+        IFS='.' read -r MAJOR MID MINOR <<< "$ARR"
+        NEXT_PATCH=$((MINOR + 1))
+        NEXT_VERSION="$MAJOR.$MID.$NEXT_PATCH"
         TAG_NAME="build-$NEXT_VERSION"
         git tag $TAG_NAME
         git push --tags
