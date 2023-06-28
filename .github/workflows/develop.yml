@@ -2,7 +2,7 @@ name: Move.it app
 
 on:
   push:
-    branches: feature
+    branches: *-feature
 
 jobs:
   build:
