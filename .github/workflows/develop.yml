@@ -11,9 +11,17 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       
-    - name: Create tag
+    - name: Fetch tags
+      run: git fetch --tags
+      
+    - name: Get last tag
+      id: last_tag
+      run: echo "::set-output name=tag::$(git describe --tags --abbrev=0)"
+      
+    - name: Calculate next version
+      id: next_version
       run: |
-        LAST_TAG=$(git describe --tags --match "build-*" --abbrev=0 2>/dev/null)
+        LAST_TAG=${{ steps.last_tag.outputs.tag }}
         LAST_VERSION=$(echo $LAST_TAG | sed 's/build-//')
         IFS='.' read -r -a VERSION_ARRAY <<< "$LAST_VERSION"
         MAJOR=${VERSION_ARRAY[0]}
@@ -21,6 +29,12 @@ jobs:
         PATCH=${VERSION_ARRAY[2]}
         NEXT_PATCH=$((PATCH + 1))
         NEXT_VERSION="$MAJOR.$MINOR.$NEXT_PATCH"
+        echo "::set-output name=next_version::$NEXT_VERSION"
+      
+    - name: Create tag
+      id: create_tag
+      run: |
+        NEXT_VERSION=${{ steps.next_version.outputs.next_version }}
         TAG_NAME="build-$NEXT_VERSION"
         git tag $TAG_NAME
         git push --tags
