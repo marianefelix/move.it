@@ -14,8 +14,10 @@ jobs:
     - name: Create tag
       run: |
         LAST_TAG=$(git tag -l --sort=-v:refname)
-        ARR=$(echo $LAST_TAG | sed -e s/build-//g | tr -s "." " " | xargs -n 1)
-        IFS='.' read -r MAJOR MID MINOR <<< "$ARR"
+        ARR=($(echo $LAST_TAG | tr -s "." " "))
+        MAJOR=${ARR[0]}
+        MID=${ARR[1]}
+        MINOR=${ARR[2]}
         NEXT_PATCH=$((MINOR + 1))
         NEXT_VERSION="$MAJOR.$MID.$NEXT_PATCH"
         TAG_NAME="build-$NEXT_VERSION"
