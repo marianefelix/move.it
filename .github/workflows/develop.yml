@@ -1,8 +1,8 @@
 name: Move.it app
 
 on:
-  pull_request:
-    branches: develop
+  push:
+    branches: feature
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       
     - name: Create tag
       run: |
-        LAST_TAG=$(git describe --tags --match "build-*" --abbrev=0 || echo "build-0.0.1")
+        LAST_TAG=$(git describe --tags --match "build-*" --abbrev=0 2>/dev/null || echo "build-0.0.0")
         LAST_VERSION=$(echo $LAST_TAG | sed 's/build-//')
         IFS='.' read -r -a VERSION_ARRAY <<< "$LAST_VERSION"
         MAJOR=${VERSION_ARRAY[0]}
