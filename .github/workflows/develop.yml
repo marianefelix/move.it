@@ -15,7 +15,9 @@ jobs:
       run: |
         LAST_TAG=$(git tag -l --sort=-v:refname | head -n 1 || "build-0.0.0")
         LAST_VERSION=$(echo $LAST_TAG | sed 's/build-//')
+        echo $LAST_VERSION
         IFS='.' read -r -a VERSION_ARRAY <<< "$LAST_VERSION"
+        echo ${VERSION_ARRAY[@]}
         MAJOR=${VERSION_ARRAY[0]}
         MID=${VERSION_ARRAY[1]}
         PATCH=${VERSION_ARRAY[2]}
