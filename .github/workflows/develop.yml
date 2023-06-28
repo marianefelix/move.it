@@ -13,7 +13,7 @@ jobs:
       
     - name: Create tag
       run: |
-        LAST_TAG=$(git tag -l --sort=-v:refname | head -n 1)
+        LAST_TAG=$(git tag -l --sort=-v:refname)
         ARR=$(echo $LAST_TAG | sed -e s/build-//g | tr -s "." " " | xargs -n 1)
         IFS='.' read -r MAJOR MID MINOR <<< "$ARR"
         NEXT_PATCH=$((MINOR + 1))
