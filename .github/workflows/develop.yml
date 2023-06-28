@@ -15,8 +15,8 @@ jobs:
       run: |
         ARR=$(echo $LAST_TAG | sed -e s/rel-//g | tr -s "." " " | xargs -n 1)
         MAJOR=${ARR[0]}
-        MINOR=${ARR[2]}
-        PATCH=${ARR[4]}
+        MINOR=${ARR[1]}
+        PATCH=${ARR[2]}
         NEXT_PATCH=$((PATCH + 1))
         NEXT_VERSION="$MAJOR.$MINOR.$NEXT_PATCH"
         TAG_NAME="build-$NEXT_VERSION"
