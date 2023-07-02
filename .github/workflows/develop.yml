@@ -8,4 +8,4 @@ on:
 
 jobs:
   build:
-    uses: marianefelix/sistema-bancario/.github/workflows/build.yml@2-feature
+    uses: marianefelix/move.it/.github/workflows/build.yml@2-feature
