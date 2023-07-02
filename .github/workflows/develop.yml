@@ -1,28 +1,11 @@
 name: Move.it app
 
 on:
+  workflow_dispatch:
   pull_request:
-    branches: develop
+    branches:
+      - develop
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-      
-    - name: Create tag
-      run: |
-        LAST_TAG=$(git tag -l --sort=-v:refname | head -n 1 || "build-0.0.0")
-        LAST_VERSION=$(echo $LAST_TAG | sed 's/build-//')
-        echo $LAST_VERSION
-        IFS='.' read -r -a VERSION_ARRAY <<< "$LAST_VERSION"
-        echo ${VERSION_ARRAY[@]}
-        MAJOR=${VERSION_ARRAY[0]}
-        MID=${VERSION_ARRAY[1]}
-        PATCH=${VERSION_ARRAY[2]}
-        NEXT_PATCH=$((PATCH + 1))
-        NEXT_VERSION="$MAJOR.$MID.$NEXT_PATCH"
-        TAG_NAME="build-$NEXT_VERSION"
-        git tag $TAG_NAME
-        git push --tags
+    uses: marianefelix/sistema-bancario/.github/workflows/build.yml@2-feature
