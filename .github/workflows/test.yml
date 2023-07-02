@@ -9,7 +9,4 @@ jobs:
     steps:
       - name: Run tests
         run: |
-          cd tests
-          make
-          ./testapp
-          cd ..
+          yarn test
