@@ -1,10 +1,10 @@
-name: Build c++ project
+name: Build C++ Project
 
 on:
   workflow_call:
 
 jobs:
-  build:
+  build_system:
     runs-on: ubuntu-latest
 
     steps:
