@@ -3,20 +3,22 @@ name: Build c++ project
 on:
   workflow_call:
 
-  runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-  
-    - name: Set up Pistache
-      run: |
-        sudo add-apt-repository ppa:pistache+team/unstable -y
-        sudo apt update
-        sudo apt install libpistache-dev -y
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
     
-    - name: Set Pistache variable
-      run: export LD_LIBRARY_PATH=/path/to/pistache/lib
+      - name: Set up Pistache
+        run: |
+          sudo add-apt-repository ppa:pistache+team/unstable -y
+          sudo apt update
+          sudo apt install libpistache-dev -y
       
-    - name: Build system
-      run: make
+      - name: Set Pistache variable
+        run: export LD_LIBRARY_PATH=/path/to/pistache/lib
+        
+      - name: Build system
+        run: make

@@ -7,5 +7,5 @@ on:
       - develop
 
 jobs:
-  build:
+  build_system:
     uses: marianefelix/move.it/.github/workflows/build.yml@2-feature
