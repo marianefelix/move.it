@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create and push tag
-      run: |
-        TAG_NAME="build-$(date +'%m%d%Y%H%M%S')"
-        git tag $TAG_NAME
-        git push --tags
+        run: |
+          TAG_NAME="build-$(date +'%m%d%Y%H%M%S')"
+          git tag $TAG_NAME
+          git push --tags
