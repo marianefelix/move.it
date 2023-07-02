@@ -12,6 +12,7 @@ jobs:
   test:
     uses: marianefelix/move.it/.github/workflows/test.yml@2-feature
   generate_tag:
+    runs-on: ubuntu-latest
     steps:
       - name: Create and push tag
       run: |
