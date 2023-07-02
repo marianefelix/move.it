@@ -1,0 +1,12 @@
+name: Run Unit Tests
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: |
+          yarn test

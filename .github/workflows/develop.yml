@@ -1,0 +1,21 @@
+name: Move.it app
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build:
+    uses: marianefelix/move.it/.github/workflows/build.yml@2-feature
+  test:
+    uses: marianefelix/move.it/.github/workflows/test.yml@2-feature
+  generate_tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create and push tag
+        run: |
+          TAG_NAME="build-$(date +'%m%d%Y%H%M%S')"
+          git tag $TAG_NAME
+          git push --tags

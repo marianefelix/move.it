@@ -1,0 +1,12 @@
+name: Build React Project with Yarn
+
+on:
+  workflow_call:
+
+jobs:
+  build_system:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build system
+        run: yarn build
